@@ -20,12 +20,16 @@ icon = "cool-x"
 compress = true
 
 [package.metadata.docs.rs]
-targets = ["armv7a-none-eabi"]
+targets = ["armv7a-vex-v5"]
+cargo-args = [
+    "-Zbuild-std=std,panic_abort",
+    "-Zbuild-std-features=compiler-builtins-mem",
+]
 
 [dependencies]
 embedded-graphics-core = "0.4.0"
 vex-sdk = "0.28.0"
-vexide = { version = "0.8.0", features = ["full"] }
+vexide = "0.8.0"
 
 [dev-dependencies]
 vexide = "0.8.0"
